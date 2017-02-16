@@ -14,7 +14,7 @@
     name: munin
     update_cache: yes
     cache_valid_time: 3600
-  when: "is_client is defined and 'true' in is_client"
+  when: "is_client is defined and 'true' in is_server"
   tags:
     - install
     - install_server
