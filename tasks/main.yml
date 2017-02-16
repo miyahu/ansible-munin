@@ -12,4 +12,12 @@
     - install_client
     - install_server
 
+- name: 'Include Configure'
+  include: configure.yml
+  tags:
+    - install
+    - install_client
+    - install_server
+
+
 
