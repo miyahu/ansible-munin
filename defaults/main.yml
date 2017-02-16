@@ -36,6 +36,7 @@ munin_node_plugins_add:
 
 munin_node_plugins_remove:
   - exim_mailqueue
+  - exim_mailstats
 
 munin_node_plugins:
   'apache':
