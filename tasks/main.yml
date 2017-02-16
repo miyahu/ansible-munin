@@ -19,5 +19,13 @@
     - install_client
     - install_server
 
+- name: 'Include plugins'
+  include: plugins.yml
+  tags:
+    - install
+    - install_client
+    - install_server
+
+
 
 

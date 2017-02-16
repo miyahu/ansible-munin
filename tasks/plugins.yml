@@ -1,0 +1,21 @@
+---
+- name: enable define plugins
+  file:
+    src: /usr/share/munin/plugins/
+    dest: /etc/munin/plugins/
+    state: link
+  with_items: "{{ munin_node_plugins_add }}"
+  tags:
+    - install
+    - install_client
+   
+- name: disable define plugins
+  file:
+    src: /usr/share/munin/plugins/
+    dest: /etc/munin/plugins/
+    state: absent
+  with_items: "{{ munin_node_plugins_add }}"
+  tags:
+    - install
+    - install_client
+   
