@@ -1,0 +1,6 @@
+---
+- name: 'Install dependances'
+  apt:
+    name  : "{{ item }}"
+    state : present
+  with_items: "{{ munin_dependances_packages }}"

@@ -1,0 +1,9 @@
+
+is_client: 'true'
+is_server: 'false' 
+munin_dependances_packages: []
+
+applications_list:
+  - apache
+  - influxdb 
+
