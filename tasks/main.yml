@@ -1,6 +1,14 @@
 ---
-- name: 'Install dependances'
+- name: Install dependances
   apt:
     name  : "{{ item }}"
     state : present
   with_items: "{{ munin_dependances_packages }}"
+
+- name: 'Include install'
+  include: install.yml
+  tags:
+    - install
+    - install_client
+    - install_server
+
