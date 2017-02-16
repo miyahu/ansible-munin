@@ -8,6 +8,9 @@ applications_list:
   - apache
   - influxdb 
 
+## Munin-node configuration ##
+munin_node_files:
+  - munin-node.conf
 
 munin_node_acl_allow:
   - '^127\.0\.0\.1$'
