@@ -1,6 +1,7 @@
-
+---
 is_client: 'true'
 is_server: 'false' 
+
 munin_dependances_packages:
   - libnet-cidr-perl # for cidr acl
 
@@ -8,7 +9,10 @@ applications_list:
   - apache
   - influxdb 
 
+##############################
 ## Munin-node configuration ##
+##############################
+
 munin_node_files:
   - munin-node.conf
 
@@ -21,12 +25,53 @@ munin_node_cidr_allow:
 munin_node_cidr_deny:
   - '192.168.1.23'
 
+###################################
 ## install and configure plugins ##
+###################################
 
 munin_node_plugins_add:
   - tcp
   - netstat
+  - iostat
 
 munin_node_plugins_remove:
   - exim_mailqueue
 
+munin_node_plugins:
+  'apache':
+    - apache_accesses
+    - apache_processes
+    - apache_volume
+  'bind9':
+    - bind9
+    - bind9_rndc
+  'courier':
+    - courier_mta_mailqueue
+    - courier_mta_mailstats
+    - courier_mta_mailvolume
+  'haproxy_ng':
+    - haproxy_ng
+  'mysql':
+    - mysql_bytes
+    - mysql_innodb
+    - mysql_queries
+    - mysql_slowqueries
+    - mysql_threads
+  'nginx':
+    - nginx_request
+    - nginx_status
+  'openvpn':
+    - openvpn
+  'perdition':
+    - perdition
+  'postfix':
+    - postfix_mailqueue
+    - postfix_mailstats
+    - postfix_mailvolume
+  'postgres':
+    - postgres_autovacuum
+    - postgres_bgwriter
+    - postgres_checkpoints
+    - postgres_connections_db
+    - postgres_users
+    - postgres_xlog
