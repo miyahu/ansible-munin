@@ -1,9 +1,15 @@
 
 is_client: 'true'
 is_server: 'false' 
-munin_dependances_packages: []
+munin_dependances_packages:
+  - libnet-cidr-perl # for cidr acl
 
 applications_list:
   - apache
   - influxdb 
+
+
+munin_node_acl_allow:
+  - '^127\.0\.0\.1$'
+  - '^::1$'
 
