@@ -38,7 +38,7 @@ munin_node_plugins_remove:
   - exim_mailqueue
   - exim_mailstats
 
-munin_node_plugins:
+munin_node_standart_application_plugins:
   'apache':
     - apache_accesses
     - apache_processes
@@ -76,3 +76,8 @@ munin_node_plugins:
     - postgres_connections_db
     - postgres_users
     - postgres_xlog
+
+
+munin_node_standart_application_plugins_enable:
+  - apache
+  - bind9 
