@@ -6,7 +6,6 @@
     state: link
   with_items: "{{ munin_node_plugins_add }}"
   tags:
-    - install
     - install_client
    
 - name: disable standart plugins
@@ -16,18 +15,17 @@
     state: absent
   with_items: "{{ munin_node_plugins_remove }}"
   tags:
-    - install
     - install_client
    
-- name: "by application, enable plugins"
-  #file:
-    src: "/usr/share/munin/plugins/{{ item }}"
-    dest: "/etc/munin/plugins/{{ item }}"
+#- name: "by application, enable plugins"
+#  #file:
+#    src: "/usr/share/munin/plugins/{{ item }}"
+#    dest: "/etc/munin/plugins/{{ item }}"
     #state: absent
   
-  with_subelements: 
-    - munin_node_standart_application_plugins_enable
-    - "{{ munin_node_standart_application_plugins }}"
-  tags:
-    - install
-    - install_client
+#  with_subelements: 
+#    - munin_node_standart_application_plugins_enable
+#    - "{{ munin_node_standart_application_plugins }}"
+#  tags:
+#    - install
+#    - install_client

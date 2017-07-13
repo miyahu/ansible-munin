@@ -1,0 +1,12 @@
+---
+- name: enable mysql plugins
+  file:
+    src: "/usr/share/munin/plugins/mysql_"
+    dest: "/etc/munin/plugins/mysql_{{ item }}"
+    state: link
+  with_items: "{{ munin_node_plugin_mysql }}"
+  when: '"true" in is_mysql_server'
+  tags:
+    - munin_mysql
+
+

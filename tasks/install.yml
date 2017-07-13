@@ -6,7 +6,6 @@
     cache_valid_time: 3600
   when: "is_client is defined and 'true' in is_client"
   tags:
-    - install
     - install_client
 
 - name: Install munin Server
@@ -16,5 +15,4 @@
     cache_valid_time: 3600
   when: "is_client is defined and 'true' in is_server"
   tags:
-    - install
     - install_server

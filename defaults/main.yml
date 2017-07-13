@@ -1,6 +1,7 @@
 ---
 is_client: 'true'
 is_server: 'false' 
+is_mysql_server: 'false'
 
 munin_dependances_packages:
   - libnet-cidr-perl # for cidr acl
@@ -81,3 +82,53 @@ munin_node_standart_application_plugins:
 munin_node_standart_application_plugins_enable:
   - apache
   - bind9 
+
+munin_node_plugin_varnish:
+  - request_rate
+  - hit_rate
+  - backend_traffic
+  - objects
+  - transfer_rates
+  - threads
+  - memory_usage
+  - uptime
+  - objects_per_objhead
+  - losthdr
+  - obj_sendfile_vs_write
+  - esi
+  - session session_herd
+  - shm_writ
+  - es
+  - shm allocations
+  - vcl_and_bans expunge
+  - lru
+  - bad
+  - dat prouta_structures
+
+munin_node_plugin_mysql:
+  - bin_relay_log
+  - commands connections
+  - files_tables
+  - innodb_bpool
+  - innodb_bpool_act
+  - innodb_insert_buf
+  - innodb_io
+  - innodb_io_pend
+  - innodb_log
+  - innodb_rows
+  - innodb_semaphores
+  - innodb_tnx
+  - myisam_indexes
+  - network_traffic
+  - qcache
+  - qcache_mem
+  - replication
+  - select_types
+  - slow sorts
+  - table_locks
+  - tmp_tables
+
+munin_node_plugin_apache:
+  - apache_accesses
+  - apache_processes
+  - apache_volume

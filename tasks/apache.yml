@@ -1,0 +1,12 @@
+---
+- name: enable apache plugins
+  file:
+    src: "/usr/share/munin/plugins/{{ item }}"
+    dest: "/etc/munin/plugins/{{ item }}"
+    state: link
+  with_items: "{{ munin_node_plugin_apache }}"
+  when: '"true" in is_apache_server'
+  tags:
+    - munin_apache
+
+

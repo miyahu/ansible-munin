@@ -22,10 +22,10 @@
 - name: 'Include plugins'
   include: plugins.yml
   tags:
-    - install
     - install_client
-    - install_server
 
+- name: 'Include MySQL'
+  include: mysql.yml
 
-
-
+- name: 'Include Varnish'
+  include: varnish.yml

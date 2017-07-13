@@ -1,0 +1,12 @@
+---
+- name: enable varnish plugins
+  file:
+    src: "/usr/share/munin/plugins/varnish_"
+    dest: "/etc/munin/plugins/varnish_{{ item }}"
+    state: link
+  with_items: "{{ munin_node_plugin_varnish }}"
+  when: '"true" in is_varnish_server'
+  tags:
+    - munin_varnish
+
+
