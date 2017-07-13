@@ -16,7 +16,3 @@
   tags:
      - configure
 
-- name: "restart munin-node service"
-  service:
-    name: rsyslog
-    state: restarted
