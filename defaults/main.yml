@@ -40,44 +40,6 @@ munin_node_plugins_remove:
   - exim_mailstats
 
 munin_node_standart_application_plugins:
-  'apache':
-    - apache_accesses
-    - apache_processes
-    - apache_volume
-  'bind9':
-    - bind9
-    - bind9_rndc
-  'courier':
-    - courier_mta_mailqueue
-    - courier_mta_mailstats
-    - courier_mta_mailvolume
-  'haproxy_ng':
-    - haproxy_ng
-  'mysql':
-    - mysql_bytes
-    - mysql_innodb
-    - mysql_queries
-    - mysql_slowqueries
-    - mysql_threads
-  'nginx':
-    - nginx_request
-    - nginx_status
-  'openvpn':
-    - openvpn
-  'perdition':
-    - perdition
-  'postfix':
-    - postfix_mailqueue
-    - postfix_mailstats
-    - postfix_mailvolume
-  'postgres':
-    - postgres_autovacuum
-    - postgres_bgwriter
-    - postgres_checkpoints
-    - postgres_connections_db
-    - postgres_users
-    - postgres_xlog
-
 
 munin_node_standart_application_plugins_enable:
   - apache
@@ -103,7 +65,6 @@ munin_node_plugin_varnish:
   - vcl_and_bans expunge
   - lru
   - bad
-  - dat prouta_structures
 
 munin_node_plugin_mysql:
   - bin_relay_log
@@ -132,3 +93,44 @@ munin_node_plugin_apache:
   - apache_accesses
   - apache_processes
   - apache_volume
+
+munin_node_plugin_memcached:
+  - bytes
+  - commands
+  - conns
+  - evictions
+  - items
+  - memory
+  - unfetched
+
+munin_node_plugin_postfix:
+  - postfix_mailqueue
+  - postfix_mailstats
+  - postfix_mailvolume
+
+munin_node_plugin_postgres:
+  - postgres_autovacuum
+  - postgres_bgwriter
+  - postgres_checkpoints
+  - postgres_connections_db
+  - postgres_users
+  - postgres_xlog
+
+munin_node_plugin_nginx:
+  - nginx_request
+  - nginx_status
+
+munin_node_plugin_openvpn:
+  - openvpn
+
+munin_node_plugin_bind9:
+  - bind9
+  - bind9_rndc
+
+munin_node_plugin_courrier:
+  - courier_mta_mailqueue
+  - courier_mta_mailstats
+  - courier_mta_mailvolume
+
+munin_node_plugin_haproxy:
+  - haproxy_ng

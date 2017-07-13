@@ -5,7 +5,7 @@
     dest: "/etc/munin/plugins/{{ item }}"
     state: link
   with_items: "{{ munin_node_plugin_apache }}"
-  when: '"true" in is_apache_server'
+  when: "is_apache_server is defined and 'true' in is_apache_server"
   tags:
     - munin_apache
 

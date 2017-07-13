@@ -1,0 +1,23 @@
+---
+- name: copy memcached plugin
+  copy:
+    src: files/plugins/memcached_multi_
+    dest: /usr/share/munin/plugins/memcached_multi_
+    owner: root
+    group: root
+    mode: 0644
+  when: "is_memcached_server is defined and 'true' in is_memcached_server"
+  tags:
+    - munin_memcached
+
+- name: enable memcached plugin
+  file:
+    src: "/usr/share/munin/plugins/memcached_multi_"
+    dest: "/etc/munin/plugins/memcached_multi_{{ item }}"
+    state: link
+  with_items: "{{ munin_node_plugin_varnish }}"
+  when: "is_memcached_server is defined and 'true' in is_memcached_server"
+  tags:
+    - munin_memcached
+
+
