@@ -10,9 +10,12 @@
 
 - name: Install munin Server
   apt:
-    name: munin
+    name: {{ item }}
     update_cache: yes
     cache_valid_time: 3600
+  with_items:
+    - munin
+    - rrdcached
   when: "is_client is defined and 'true' in is_server"
   tags:
     - install_server

@@ -1,7 +1,7 @@
 ---
-is_client: 'true'
-is_server: 'false' 
-is_mysql_server: 'false'
+#is_client: 'true'
+#is_server: 'false' 
+#is_mysql_server: 'false'
 
 munin_dependances_packages:
   - libnet-cidr-perl # for cidr acl

@@ -98,11 +98,11 @@ includedir /etc/munin/munin-conf.d
 [localhost.localdomain]
     address 127.0.0.1
     use_node_name yes
-{% if is_client is defined %}
-{% for acl in munin_node_acl_allow %}
-allow {{ acl }}
+{% for host in groups['all'] %}
+[{{ hostvars[host].ansible_fqdn }}]
+  address {{ hostvars[host].ansible_default_ipv4.address }}
+  use_node_name yes
 {% endfor %}
-{% endif %}
 
 #
 # A more complex example of a host tree
