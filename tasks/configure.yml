@@ -1,10 +1,12 @@
 ---
 - name: "node configuration"
   template:
-    src: "munin-node/{{ item }}.j2"
+    src: "{{ item }}.j2"
     dest: "/etc/munin/{{ item }}"
   with_items: "{{ munin_node_files }}"
   when: "is_client is defined and 'true' in is_client"
+  notify:
+    - restart munin-node service
   tags:
      - configure
 
@@ -15,8 +17,3 @@
   when: "is_server is defined and 'true' in is_server"
   tags:
      - configure
-
-- name: "restart munin-node service"
-  service:
-    name: rsyslog
-    state: restarted

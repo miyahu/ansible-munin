@@ -5,7 +5,7 @@
     dest: "/etc/munin/plugins/mysql_{{ item }}"
     state: link
   with_items: "{{ munin_node_plugin_mysql }}"
-  when: '"true" in is_mysql_server'
+  when: "is_mysql_server is defined and 'true' in is_mysql_server and munin_node_plugin_mysql is defined"
   tags:
     - munin_mysql
 

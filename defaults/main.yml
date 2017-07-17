@@ -18,10 +18,10 @@ munin_node_files:
   - munin-node.conf
 
 munin_node_acl_allow:
-  - '^127\.0\.0\.2$'
+#  - '^127\.0\.0\.2$'
 
 munin_node_cidr_allow:
-  - '192.168.1.22'
+#  - '192.168.1.22'
 
 munin_node_cidr_deny:
   - '192.168.1.23'

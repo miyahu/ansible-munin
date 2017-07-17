@@ -99,9 +99,13 @@ includedir /etc/munin/munin-conf.d
     address 127.0.0.1
     use_node_name yes
 {% for host in groups['all'] %}
+{% if hostvars[host].ansible_fqdn is defined %}
 [{{ hostvars[host].ansible_fqdn }}]
+{% endif %}
+{% if hostvars[host].ansible_default_ipv4.address is defined %}
   address {{ hostvars[host].ansible_default_ipv4.address }}
   use_node_name yes
+{% endif %}
 {% endfor %}
 
 #
