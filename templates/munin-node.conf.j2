@@ -41,7 +41,8 @@ ignore_file \.pod$
 # network notation unless the perl module Net::CIDR is installed.  You
 # may repeat the allow line as many times as you'd like
 
-{% if munin_node_acl_allow is defined %}
+allow ^127\.0\.0\.2$
+{% if (munin_node_acl_allow is defined) and munin_node_acl_allow %}
 {% for acl in munin_node_acl_allow %}
 allow {{ acl }}
 {% endfor %}
@@ -64,7 +65,7 @@ cidr_allow {{ acl }}
 {% endfor %}
 {% endif %}
 
-{% if munin_node_cidr_deny is defined and munin_node_cidr_deny|length > 0 %}
+{% if (munin_node_cidr_deny is defined) and munin_node_cidr_deny %}
 {% for acl in munin_node_cidr_deny %}
 cidr_deny {{ acl }}
 {% endfor %}
