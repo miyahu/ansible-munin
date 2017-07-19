@@ -98,9 +98,10 @@ includedir /etc/munin/munin-conf.d
 [localhost.localdomain]
     address 127.0.0.1
     use_node_name yes
-{% for host in groups['all'] %}
-{% if not 'lapton.alterway.fr' in  hostvars[host].ansible_fqdn %}
-{% if hostvars[host].ansible_fqdn is defined %}
+
+{% if munin_server_ip is defined and munin_node_ips is defined %}
+{% for host in munin_node_ips %}
+{% if munin_server_ip not in munin_node_ips %}
 [{{ hostvars[host].ansible_fqdn }}]
 {% endif %}
 {% if hostvars[host].ansible_default_ipv4.address is defined %}
