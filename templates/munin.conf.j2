@@ -1,16 +1,14 @@
 includedir /etc/munin/munin-conf.d
 
-[localhost.localdomain]
-    address 127.0.0.1
-    use_node_name yes
-
-{% if munin_server_address is defined and munin_nodes_address is defined %}
-{% for host in munin_nodes_address %}
-{% if munin_server_address not in munin_nodes_address %}
-[{{ host }}]
-  address {{ hostvars[inventory_hostname][ansible_default_ipv4.address] }}
+{% for host in groups['all'] %}
+{% if hostvars[host].ansible_fqdn is defined %}
+{% if munin_server_address is defined and munin_server_address not in hostvars[host].ansible_fqdn %}
+[{{ hostvars[host].ansible_fqdn }}]
+{% if hostvars[host].ansible_default_ipv4.address is defined %}
+  address {{ hostvars[host].ansible_default_ipv4.address }}
   use_node_name yes
 
 {% endif %}
-{% endfor %}
 {% endif %}
+{% endif %}
+{% endfor %}
