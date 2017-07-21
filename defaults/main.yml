@@ -10,9 +10,21 @@ applications_list:
   - apache
   - influxdb 
 
+################################
+## Munin server configuration ##
+################################
+
+munin_server_address:
+   - localhost
+
 ##############################
 ## Munin-node configuration ##
 ##############################
+
+munin_nodes_address:
+  - ns7.architux.com
+  - ns6.architux.com
+
 
 munin_node_files:
   - munin-node.conf
