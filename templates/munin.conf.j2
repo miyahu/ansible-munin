@@ -5,7 +5,11 @@ includedir /etc/munin/munin-conf.d
 {% if munin_server_address is defined and munin_server_address not in hostvars[host].ansible_fqdn %}
 [{{ hostvars[host].ansible_fqdn }}]
 {% if hostvars[host].ansible_default_ipv4.address is defined %}
-  address {{ hostvars[host].ansible_default_ipv4.address }}
+{% if ansible_ssh_host is defined %}
+  address {{ hostvars[host].ansible_ssh_host  }} #1
+{% else %}
+ address {{ hostvars[host].ansible_default_ipv4.address }} #2
+{% endif %}
   use_node_name yes
 
 {% endif %}

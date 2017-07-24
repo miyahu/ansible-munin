@@ -14,17 +14,11 @@ applications_list:
 ## Munin server configuration ##
 ################################
 
-munin_server_address:
-   - localhost
+munin_server_address: lapton.alterway.fr
 
 ##############################
 ## Munin-node configuration ##
 ##############################
-
-munin_nodes_address:
-  - ns7.architux.com
-  - ns6.architux.com
-
 
 munin_node_files:
   - munin-node.conf

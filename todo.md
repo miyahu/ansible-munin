@@ -6,3 +6,11 @@
 * variabiliser le munin-node.j2
 * configurer le contrôle d'accès IP d'apache
 
+## Dependances
+
+plugins apache
+*  libparse-http-useragent-perl
+
+plugins mysql_
+*  libcache-perl
+* libcache-cache-perl
