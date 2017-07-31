@@ -74,7 +74,8 @@ munin_node_plugin_varnish:
 
 munin_node_plugin_mysql:
   - bin_relay_log
-  - commands connections
+  - commands
+  - connections
   - files_tables
   - innodb_bpool
   - innodb_bpool_act
